@@ -34,7 +34,7 @@ app.get("/restaurants/:id", async (req, res) => {
 
   try {
 
-    const results = await db.query("SELECT * FROM restaurants WHERE id = $1", [req.params.id]");
+    const results = await db.query("SELECT * FROM restaurants WHERE id = $1", [req.params.id]);
 
     res.status(200).json({
       status: "success",
@@ -102,17 +102,17 @@ app.delete("/restaurants/:id", async (req, res) => {
 
   try {
 
-    const results = await db.query("DELETE FROM restaurants WHERE id = $1", 
-    [req.params.id]
-    )
+    const results = await db.query("DELETE FROM restaurants WHERE id = $1",
+      [req.params.id],
+    );
     
     res.status(204).json({
-    status: "success",
+      status: "success",
     })
 
   } catch (err) {
-    console.log(err),
-  }
+    console.log(err);
+    };
 
 
 });
