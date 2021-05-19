@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json()); //middleware
 
 //GET all restaurants
-app.get("/restaurants", async (req, res) => {
+app.get("/api/v1/restaurants", async (req, res) => {
 
   try {
     const results = await db.query("SELECT * FROM restaurants");
@@ -21,7 +21,7 @@ app.get("/restaurants", async (req, res) => {
       status: "success",
       results: results[rows].length,
       data: {
-        restaurants: results.rows
+        restaurants: results.rows,
       },
     });
 
@@ -32,7 +32,7 @@ app.get("/restaurants", async (req, res) => {
 });
 
 //GET a specific restaurant
-app.get("/restaurants/:id", async (req, res) => {
+app.get("/api/v1/restaurants/:id", async (req, res) => {
 
   try {
 
@@ -54,7 +54,7 @@ app.get("/restaurants/:id", async (req, res) => {
 });
 
 //POST a restaurant
-app.post("/restaurants", async (req, res) => {
+app.post("/api/v1/restaurants", async (req, res) => {
 
   try {
 
@@ -76,7 +76,7 @@ app.post("/restaurants", async (req, res) => {
 });
 
 //UPDATE a restaurant
-app.put("/restaurants/:id", async (req, res) => {
+app.put("/api/v1/restaurants/:id", async (req, res) => {
 
   try {
 
@@ -100,7 +100,7 @@ app.put("/restaurants/:id", async (req, res) => {
 });
 
 //DELETE a restaurant
-app.delete("/restaurants/:id", async (req, res) => {
+app.delete("/api/v1/restaurants/:id", async (req, res) => {
 
   try {
 
