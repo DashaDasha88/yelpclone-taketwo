@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const db = require("./db");
 
 const morgan = require("morgan"); //middleware
 const app = express(); //express instance
 
+app.use(cors());
 app.use(express.json()); //middleware
 
 //GET all restaurants
