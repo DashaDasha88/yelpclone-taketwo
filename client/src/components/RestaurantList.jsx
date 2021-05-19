@@ -14,13 +14,12 @@ const RestaurantList = (props) => {
         const response = await RestaurantFinder.get("/")
         setRestaurants(response.data.data.restaurants);
 
-      } catch (err) {
-
-      }
+      } catch (err) {}
     };
+    
     fetchData();
 
-  }, [])
+  }, []);
 
   return (
     <div className="list-group">
@@ -36,14 +35,26 @@ const RestaurantList = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {restaurants.map((restaurant) => {
+            return (
+              <tr>
+                <td>{restaurant.name}</td>
+                <td>{restaurant.location}</td>
+                <td>{"$".repeat(restaurant.price_range)}</td>
+                <td>Reviews</td>
+                <td><button className="btn btn-warning">Update</button></td>
+                <td><button className="btn btn-danger">Delete</button></td>
+              </tr>
+            );
+          })}
+          {/* <tr>
             <td>Saigon Lotus</td>
             <td>Toronto</td>
             <td>$$</td>
             <td>Rating</td>
             <td><button className="btn btn-warning">Update</button></td>
             <td><button className="btn btn-danger">Delete</button></td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>
