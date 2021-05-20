@@ -4,16 +4,20 @@ import { RestaurantsContext } from "../context/RestaurantContext";
 
 const RestaurantList = (props) => {
 
+
   const {restaurants, setRestaurants} = useContext(RestaurantsContext);
 
   useEffect(() => {
-
+    
     const fetchData = async () => {
-
+   
       try {
-        const response = await RestaurantFinder.get("/")
-        setRestaurants(response.data.data.restaurants);
-
+        console.log("o hai");
+        const response = await RestaurantFinder.get("/");
+        console.log("o hey");
+        console.log(response);
+        setRestaurants(response.data);
+        console.log("o bai");
       } catch (err) {}
     };
 
@@ -26,12 +30,12 @@ const RestaurantList = (props) => {
       <table className="table table-hover table-dark">
         <thead>
           <tr className="bg-primary">
-            <th scopr="col">Restaurant</th>
-            <th scopr="col">Location</th>
-            <th scopr="col">Price Range</th>
-            <th scopr="col">Ratings</th>
-            <th scopr="col">Edit</th>
-            <th scopr="col">Delete</th>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Location</th>
+            <th scope="col">Price Range</th>
+            <th scope="col">Ratings</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
