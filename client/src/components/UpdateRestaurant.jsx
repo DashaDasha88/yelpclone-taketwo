@@ -1,13 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import RestaurantFinder from "../apis/RestaurantFinder";
-import { RestaurantsContext } from "../context/RestaurantContext";
 
 const UpdateRestaurant = (props) => {
 
   const { id } = useParams();
   let history = useHistory();
-  const { restaurants } = useContext(RestaurantsContext);
+  
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("");
