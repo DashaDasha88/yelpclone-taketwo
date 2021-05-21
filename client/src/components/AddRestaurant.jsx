@@ -20,7 +20,7 @@ const AddRestaurant = () => {
       })
       addRestaurants(response.data.data.restaurants);
     } catch (err) {
-
+      console.log(err);
     }
 
   }
