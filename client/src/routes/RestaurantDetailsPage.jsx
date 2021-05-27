@@ -4,6 +4,7 @@ import { RestaurantsContext } from "../context/RestaurantContext";
 import RestaurantFinder from "../apis/RestaurantFinder";
 import StarRating from "../components/StarRating";
 import Reviews from "../components/Reviews";
+import AddReview from "../components/AddReview";
 
 const RestaurantDetailsPage = () => {
   const {id} = useParams();
@@ -14,7 +15,7 @@ const RestaurantDetailsPage = () => {
 
       try {
         const response = await RestaurantFinder.get(`/${id}`);
-        setSelectedRestaurant(response.data.data.restaurant);
+        setSelectedRestaurant(response.data.data);
       } catch (err) {
         console.log(err);
       }
@@ -29,9 +30,9 @@ const RestaurantDetailsPage = () => {
       {selectedRestaurant && (
         <>
           <div className="at-3">
-            <Reviews/>
-
+            <Reviews reviews={selectedRestaurant.reviews}/>
           </div>
+          <AddReview />
         </>
       )}
     </div>
