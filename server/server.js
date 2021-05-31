@@ -10,6 +10,8 @@ const app = express(); //express instance
 app.use(cors());
 app.use(express.json()); //middleware
 
+console.log("kitty");
+
 //GET all restaurants
 app.get("/api/v1/restaurants", async (req, res) => {
 
