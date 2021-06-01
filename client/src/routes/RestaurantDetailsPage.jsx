@@ -19,10 +19,9 @@ const RestaurantDetailsPage = () => {
       } catch (err) {
         console.log(err);
       }
-
+      fetchData();
     };
 
-    fetchData();
   }, []);
 
   return (
